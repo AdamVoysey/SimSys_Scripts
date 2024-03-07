@@ -1042,30 +1042,6 @@ sub tab_detection {
     return $failed;
 }
 
-sub check_crown_copyright {
-    my @lines            = @_;
-    my $failed           = 1;
-    my @valid_agreements = (
-        'L0195',            'NERC',
-        'SC0138',           'UKCA',
-        'SC0171',           'ACCESS',
-        'SC0237',           'JULES',
-        'IBM',              'of Bath',
-        'Centre National',  'Lawrence Livermore',
-        'Roger Marchand, ', 'of Colorado',
-        'of Reading',
-    );
-
-    foreach my $line (@lines) {
-        $failed = 0 if ( $line =~ /^\s*(!|\/\*).*Crown\s*copyright/i );
-        foreach my $agreement (@valid_agreements) {
-            $failed = 0 if ( $line =~ /^\s*(!|\/\*).*$agreement/i );
-        }
-    }
-
-    return $failed;
-}
-
 sub check_code_owner {
     my @lines      = @_;
     my $failed     = 1;

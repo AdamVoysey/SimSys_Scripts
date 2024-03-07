@@ -56,8 +56,6 @@ my %dispatch_table_file_fortran = (
     'Never use STOP or CALL abort'                => \&UMDP3::forbidden_stop,
     'Use of Fortran function as a variable name' =>
       \&UMDP3::intrinsic_as_variable,
-    'File missing crown copyright statement or agreement reference' =>
-      \&UMDP3::check_crown_copyright,
     'File missing correct code owner comment' => \&UMDP3::check_code_owner,
     'Used (/ 1,2,3 /) form of array initialisation, rather than [1,2,3] form'
       => \&UMDP3::array_init_form,
@@ -73,8 +71,6 @@ my %dispatch_table_diff_c = (
 my %dispatch_table_file_c = (
     'Warning - used an if-def due for retirement' => \&UMDP3::retire_if_def,
     'Used a deprecated C identifier'              => \&UMDP3::c_deprecated,
-    'File missing crown copyright statement or agreement reference' =>
-      \&UMDP3::check_crown_copyright,
     'File missing correct code owner comment' => \&UMDP3::check_code_owner,
 'Used an _OPENMP if-def without also testing against SHUM_USE_C_OPENMP_VIA_THREAD_UTILS. (Or _OPENMP does not come first in the test.)'
       => \&UMDP3::c_openmp_define_pair_thread_utils,
